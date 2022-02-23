@@ -1,0 +1,22 @@
+{
+  "name": "gridboard",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/main.mjs",
+  "type": "module",
+  "typings": "./dist/main.d.ts",
+  "scripts": {
+    "build": "unbuild",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
+  },
+  "author": "Seanghay Yath <seanghay.dev@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "unbuild": "^0.6.9",
+    "vitest": "^0.5.3"
+  },
+  "dependencies": {
+    "canvas": "^2.9.0"
+  }
+}
