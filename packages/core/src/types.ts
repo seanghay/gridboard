@@ -4,23 +4,22 @@ export type GridBoardRenderFunc = (context: GridBoardRenderContext) => void;
 
 export interface GridBoardRenderContext {
   position: number;
-  currentRow: number;
-  currentColumn: number;
-  actualWidth: number;
-  actualHeight: number;
-  itemWidth: number;
-  itemHeight: number;
+  row: number;
+  column: number;
+  cellWidth: number;
+  cellHeight: number;
+  estimatedWidth: number;
+  estimatedHeight: number;
 }
 
 export interface GridBoardConfig {
   width: number;
   height: number;
-  spans: string;
-  
-  gapSize: number;
   rowSize: number;
   columnSize: number;
 
+  spans?: string;
+  gapSize?: number;
   gapEdge?: boolean;
   render?: GridBoardRenderFunc;
 }

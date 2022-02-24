@@ -13,15 +13,17 @@ export function renderGrid(
   ctx: CanvasRenderingContext2D,
   config: GridBoardConfig
 ): void {
+  
+  // preserve canvas state
   ctx.save();
 
   const {
     columnSize,
     rowSize,
-    width: w,
-    height: h,
-    gapSize,
-    spans: spansString,
+    width: w, // canvas width
+    height: h, // canvas height
+    gapSize = 0,
+    spans: spansString = '',
   } = config;
 
   const spans = createCellSpanDefinitions(
@@ -33,15 +35,18 @@ export function renderGrid(
 
   const skips = calculateSkippingCells(spans, columnSize);
 
-  let cellIndex = 0;
+  let position = 0;
 
   for (let col = 0; col < columnSize; col++) {
     for (let row = 0; row < rowSize; row++) {
+    
       const index = row * columnSize + col;
       const itemWidth = (w + gapSize) / columnSize;
       const itemHeight = (h + gapSize) / rowSize;
+    
       const span = spans[index];
 
+      // skip cells that overlapped with span cells
       if (skips.includes(index) && !span) continue;
 
       let spanW = 1;
@@ -57,19 +62,21 @@ export function renderGrid(
 
       if (config.render) {
         config!.render({
-          position: cellIndex,
-          currentColumn: col,
-          currentRow: row,
-          actualWidth,
-          actualHeight,
-          itemHeight,
-          itemWidth,
+          position,
+          row,
+          column: col,
+          cellWidth: actualWidth,
+          cellHeight: actualHeight,
+          estimatedHeight: itemHeight,
+          estimatedWidth: itemWidth,
         });
       }
 
-      cellIndex++;
+      // increase actual cell index
+      position++;
     }
   }
 
+  // restore previous canvas state
   ctx.restore();
 }

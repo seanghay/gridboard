@@ -7,3 +7,4 @@ describe("split string into array", () => {
     expect(result).toEqual(['0', '1', '2', '3', '4']);
   });
 });
+
