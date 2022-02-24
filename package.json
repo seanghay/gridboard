@@ -1,0 +1,25 @@
+{
+  "name": "@gridboard/monorepo",
+  "version": "1.0.0",
+  "description": "A",
+  "devDependencies": {
+    "doctypes": "^1.1.0",
+    "pkg-types": "^0.3.2",
+    "typescript": "^4.5.5",
+    "vscode-typescript-languageservice": "^0.29.8",
+    "vscode-languageserver-types": "^3.16.0"
+  },
+  "scripts": {
+    "test:ci": "pnpm -w --filter @gridboard/* test:ci"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seanghay/gridboard.git"
+  },
+  "author": "Seanghay Yath <seanghay.dev@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/seanghay/gridboard/issues"
+  },
+  "homepage": "https://github.com/seanghay/gridboard#readme"
+}
