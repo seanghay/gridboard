@@ -7,6 +7,6 @@ A library for building Grid & Spans on Canvas
 
 
 
-### LICENSE
+## License
 
 MIT
