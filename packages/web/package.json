@@ -13,10 +13,11 @@
   "dependencies": {
     "@gridboard/core": "workspace:^0.0.1",
     "@vueuse/core": "^7.6.2",
-    "compressorjs": "^1.1.1",
+    "browser-image-compression": "^1.0.17",
     "lodash": "^4.17.21",
     "nanoid": "^3.3.1",
-    "vue": "^3.2.25"
+    "vue": "^3.2.25",
+    "vue-upload-component": "^3.1.2"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.178",
@@ -26,7 +27,7 @@
     "vite-plugin-windicss": "^1.7.1",
     "vue-tsc": "^0.29.8",
     "windicss": "^3.4.3"
-  },  
+  },
   "author": "Seanghay Yath <seanghay.dev@gmail.com>",
   "license": "MIT"
 }
