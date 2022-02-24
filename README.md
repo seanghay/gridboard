@@ -39,35 +39,17 @@ renderGrid(ctx, {
       estimatedHeight,
       estimatedWidth
     }) {
-      const image = imageAt(position);
-      if (!image) {
-        ctx.save();
-        ctx.fillStyle = '#eee';
-        ctx.fillRect(
-          estimatedWidth * column,
-          estimatedHeight * row,
-          cellWidth,
-          cellHeight
-        );
-        ctx.restore();
-        return;
-      };
-      drawImageCell(
-        ctx,
-        image,
+      ctx.fillStyle = '#eee';
+      ctx.fillRect(
+        estimatedWidth * column,
+        estimatedHeight * row,
         cellWidth,
-        cellHeight,
-        estimatedWidth,
-        estimatedHeight,
-        column,
-        row
+        cellHeight
       );
     }
   });
   
   ```
-
-
 
 ## License
 
