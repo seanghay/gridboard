@@ -23,8 +23,50 @@ yarn add @gridboard/core
 ## Usage
 
 ```js
-// TODO: add example
-```
+renderGrid(ctx, {
+    width,
+    height,
+    gapSize: state.gridGap,
+    gapEdge: false,
+    spans: state.spans,
+    rowSize: state.gridRowSize,
+    columnSize: state.gridColumnSize,
+    render({
+      row, column,
+      cellHeight,
+      cellWidth,
+      position,
+      estimatedHeight,
+      estimatedWidth
+    }) {
+      const image = imageAt(position);
+      if (!image) {
+        ctx.save();
+        ctx.fillStyle = '#eee';
+        ctx.fillRect(
+          estimatedWidth * column,
+          estimatedHeight * row,
+          cellWidth,
+          cellHeight
+        );
+        ctx.restore();
+        return;
+      };
+      drawImageCell(
+        ctx,
+        image,
+        cellWidth,
+        cellHeight,
+        estimatedWidth,
+        estimatedHeight,
+        column,
+        row
+      );
+    }
+  });
+  
+  ```
+
 
 
 ## License
