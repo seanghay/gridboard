@@ -11,7 +11,7 @@
     "test:ci": "exit 0"
   },
   "dependencies": {
-    "gridboard": "workspace:^0.0.1",
+    "@gridboard/core": "workspace:^0.0.1",
     "@vueuse/core": "^7.6.2",
     "compressorjs": "^1.1.1",
     "lodash": "^4.17.21",
