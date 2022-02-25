@@ -5,6 +5,14 @@
   "main": "./dist/main.cjs",
   "module": "./dist/main.mjs",
   "types": "./dist/main.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seanghay/gridboard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/seanghay/gridboard/issues"
+  },
+  "homepage": "https://github.com/seanghay/gridboard#readme",
   "exports": {
     ".": {
       "require": "./dist/main.cjs",
