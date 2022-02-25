@@ -1,22 +1,28 @@
 <script setup lang="ts">
-import FileUpload, { VueUploadItem } from 'vue-upload-component'
+import KButton from './KButton.vue';
+import { ref } from 'vue'
+import { extractFilesFromInputElement } from '../file';
 
 interface KUploadButtonProps {
-  modelValue: VueUploadItem[];
+  modelValue: File[];
 }
 
 const props = defineProps<KUploadButtonProps>()
-defineEmits(['update:modelValue']);
+const emit = defineEmits(['update:modelValue']);
+const filesRef = ref<File[]>(props.modelValue);
+const fileRef = ref();
+
+function fileChange(e: Event) {
+  const target = e.target as HTMLInputElement;
+  const files = extractFilesFromInputElement(target);
+  filesRef.value = files;
+  emit('update:modelValue', files);
+}
 </script>
 
-
 <template>
-  <file-upload 
-    class="rounded-sm bg-white text-gray-700 text-sm border px-4 py-1 hover:bg-gray-100 active:bg-gray-200 transition"    
-    v-bind="$attrs"
-    :model-value="props.modelValue"
-    @update:model-value="$emit('update:modelValue', $event)"    
-  >
-  <slot></slot>
-  </file-upload>  
+  <input multiple accept="image/*" @change="fileChange" ref="fileRef" type="file" hidden />
+  <k-button @click="fileRef.value = null; fileRef.click();">
+    <slot></slot>
+  </k-button>
 </template>

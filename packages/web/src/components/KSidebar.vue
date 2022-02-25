@@ -13,11 +13,7 @@ const props = defineProps<{ state: GridBoardCanvasState, size: number[] }>();
 const emit = defineEmits(['update:state', 'update:size']);
 
 const loading: Ref<boolean> = ref(false);
-const uploadItems: Ref<VueUploadItem[]> = ref([]);
-
-const files: ComputedRef<File[]> = computed(() =>
-  unref(uploadItems)!.map(item => item.file! as File)
-);
+const files: Ref<File[]> = ref([]);
 
 const canvasSize = reactive({ 
   width: props.size[0],
@@ -49,7 +45,6 @@ function saveAsPNG() {
 
 watch(files, async () => {
   loading.value = true;
-
   Object.assign(state, { 
     ...state,
     images: await filesToImages(files.value)
@@ -74,12 +69,7 @@ watch(canvasSize, () => {
     <h3 class="px-6 py-4 text-gray-800 text-lg mb-2 border-b bg-gray-50">Grid Board</h3>
 
     <div class="px-6 pt-3 flex items-center">
-      <k-upload-button
-        v-model="uploadItems"
-        accept="image/png, image/gif, image/jpeg, image/webp"
-        :multiple="true"
-        extensions="gif,jpg,jpeg,png,webp"
-      >
+      <k-upload-button v-model="files">
         <span v-if="loading">Loading...</span>
         <span v-else>Select files</span>
       </k-upload-button>

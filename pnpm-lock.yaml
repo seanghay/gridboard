@@ -45,7 +45,6 @@ importers:
       vite-plugin-windicss: ^1.7.1
       vue: ^3.2.25
       vue-tsc: ^0.29.8
-      vue-upload-component: ^3.1.2
       windicss: ^3.4.3
     dependencies:
       '@gridboard/core': link:../core
@@ -54,7 +53,6 @@ importers:
       lodash: 4.17.21
       nanoid: 3.3.1
       vue: 3.2.31
-      vue-upload-component: 3.1.2
     devDependencies:
       '@types/lodash': 4.14.178
       '@vitejs/plugin-vue': 2.2.2_vite@2.8.4+vue@3.2.31
@@ -2326,10 +2324,6 @@ packages:
       typescript: 4.5.5
       vscode-vue-languageservice: 0.29.8
     dev: true
-
-  /vue-upload-component/3.1.2:
-    resolution: {integrity: sha512-z7/98xhNbLecTf09ZyJp0QKH6RMoVH3ojBrWYonPPHQ6qodQf0qVV81+vnB94cFVWpR/mb+F+dMN2p04K14ouw==}
-    dev: false
 
   /vue/3.2.31:
     resolution: {integrity: sha512-odT3W2tcffTiQCy57nOT93INw1auq5lYLLYtWpPYQQYQOOdHiqFct9Xhna6GJ+pJQaF67yZABraH47oywkJgFw==}

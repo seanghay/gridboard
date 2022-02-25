@@ -19,3 +19,15 @@ export async function readPlainTextFile(file: File): Promise<string> {
 export async function readJsonFile<T>(file: File): Promise<T> {
   return JSON.parse(await readPlainTextFile(file));
 }
+
+export function extractFilesFromInputElement(target: HTMLInputElement): File[] {
+  if (!target.files) return [];
+  const files: FileList = target.files;
+  const items: File[] = [];
+  for (let i = 0; i < files.length; i++) {
+    const file = files.item(i)
+    if (!file) continue;
+    items.push(file);
+  }
+  return items;
+}
