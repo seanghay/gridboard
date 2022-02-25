@@ -6,6 +6,8 @@ A library for building Grid & Spans on Canvas
 [![ci](https://github.com/seanghay/gridboard/actions/workflows/ci.yml/badge.svg)](https://github.com/seanghay/gridboard/actions/workflows/ci.yml)
 
 
+<img src="https://user-images.githubusercontent.com/15277233/155681801-1b7142dd-e147-471c-9388-b18fa51b60c9.png" width=600>
+
 ## Installation
 
 ```sh
