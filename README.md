@@ -23,9 +23,33 @@ yarn add @gridboard/core
 ## Usage
 
 ```js
-// TODO: add example
-```
-
+renderGrid(ctx, {
+    width,
+    height,
+    gapSize: state.gridGap,
+    gapEdge: false,
+    spans: state.spans,
+    rowSize: state.gridRowSize,
+    columnSize: state.gridColumnSize,
+    render({
+      row, column,
+      cellHeight,
+      cellWidth,
+      position,
+      estimatedHeight,
+      estimatedWidth
+    }) {
+      ctx.fillStyle = '#eee';
+      ctx.fillRect(
+        estimatedWidth * column,
+        estimatedHeight * row,
+        cellWidth,
+        cellHeight
+      );
+    }
+  });
+  
+  ```
 
 ## License
 
