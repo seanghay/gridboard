@@ -34,10 +34,12 @@ importers:
   packages/web:
     specifiers:
       '@gridboard/core': workspace:^0.0.1
+      '@types/file-saver': ^2.0.5
       '@types/lodash': ^4.14.178
       '@vitejs/plugin-vue': ^2.2.0
       '@vueuse/core': ^7.6.2
       browser-image-compression: ^1.0.17
+      file-saver: ^2.0.5
       lodash: ^4.17.21
       nanoid: ^3.3.1
       typescript: ^4.5.4
@@ -50,10 +52,12 @@ importers:
       '@gridboard/core': link:../core
       '@vueuse/core': 7.6.2_vue@3.2.31
       browser-image-compression: 1.0.17
+      file-saver: 2.0.5
       lodash: 4.17.21
       nanoid: 3.3.1
       vue: 3.2.31
     devDependencies:
+      '@types/file-saver': 2.0.5
       '@types/lodash': 4.14.178
       '@vitejs/plugin-vue': 2.2.2_vite@2.8.4+vue@3.2.31
       typescript: 4.5.5
@@ -262,6 +266,10 @@ packages:
 
   /@types/estree/0.0.51:
     resolution: {integrity: sha512-CuPgU6f3eT/XgKKPqKd/gLZV1Xmvf1a2R5POBOGQa6uv82xpls89HU5zKeVoyR8XzHd1RGNOlQlvUe3CFkjWNQ==}
+    dev: true
+
+  /@types/file-saver/2.0.5:
+    resolution: {integrity: sha512-zv9kNf3keYegP5oThGLaPk8E081DFDuwfqjtiTzm6PoxChdJ1raSuADf2YGCVIyrSynLrgc8JWv296s7Q7pQSQ==}
     dev: true
 
   /@types/lodash/4.14.178:
@@ -1210,6 +1218,10 @@ packages:
     dependencies:
       reusify: 1.0.4
     dev: true
+
+  /file-saver/2.0.5:
+    resolution: {integrity: sha512-P9bmyZ3h/PRG+Nzga+rbdI4OEpNDzAVyy74uVO9ATgzLK6VtAsYybF/+TOCvrc0MO793d6+42lLyZTw7/ArVzA==}
+    dev: false
 
   /fill-range/7.0.1:
     resolution: {integrity: sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ==}

@@ -5,6 +5,8 @@ import { extractFilesFromInputElement } from '../file';
 
 interface KUploadButtonProps {
   modelValue: File[];
+  accept: string;
+  multiple: boolean;
 }
 
 const props = defineProps<KUploadButtonProps>()
@@ -21,8 +23,10 @@ function fileChange(e: Event) {
 </script>
 
 <template>
-  <input multiple accept="image/*" @change="fileChange" ref="fileRef" type="file" hidden />
-  <k-button @click="fileRef.value = null; fileRef.click();">
+  <input 
+  :multiple="props.multiple" 
+  :accept="props.accept" @change="fileChange" ref="fileRef" type="file" hidden />
+  <k-button v-bind="$attrs" @click="fileRef.value = null; fileRef.click();">
     <slot></slot>
   </k-button>
 </template>

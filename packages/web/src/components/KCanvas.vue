@@ -16,6 +16,7 @@ interface KCanvasProps {
   state: GridBoardCanvasState;
 }
 
+const emits = defineEmits(['canvasReady'])
 const props = defineProps<KCanvasProps>();
 const stateRef = reactive(props.state);
 
@@ -102,6 +103,7 @@ function configureCanvas() {
   wrapper.innerHTML = '';
   wrapper.appendChild(canvas);
   canvasRef.value = canvas;
+  emits('canvasReady', canvas);
   invalidate();
 }
 

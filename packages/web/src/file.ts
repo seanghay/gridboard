@@ -1,3 +1,6 @@
+import FileSaver from 'file-saver'
+import { CanvasExportConfig } from './types'
+
 export async function readPlainTextFile(file: File): Promise<string> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -30,4 +33,33 @@ export function extractFilesFromInputElement(target: HTMLInputElement): File[] {
     items.push(file);
   }
   return items;
+}
+
+export function downloadJsonFile(data: any) {
+  const jsonString = JSON.stringify(data);
+  const file = new Blob([jsonString], { type: 'application/json' });
+  const objectURL = URL.createObjectURL(file);
+  downloadFile(`gridboard-${Date.now()}.json`, objectURL);
+}
+
+export function downloadFile(filename: string, data: any) {
+  FileSaver.saveAs(data, filename);
+}
+
+export function exportCanvasAsFile(canvas: HTMLCanvasElement, config: CanvasExportConfig) {
+  const ctx = canvas.getContext('2d')!;
+  ctx.save();
+  
+  try {
+    const data = canvas.toDataURL(config.type, config.quality ? config.quality / 100 : undefined);
+    let extension: string = '';
+    if (config.type === 'image/jpeg') extension = 'jpg';
+    if (config.type === 'image/png') extension = 'png';
+    if (!extension) return;
+    FileSaver.saveAs(data, `image-gridboard-${Date.now()}.${extension}`);
+  } catch (e) {
+    console.error(e)
+  } finally {
+    ctx.restore();
+  }
 }
