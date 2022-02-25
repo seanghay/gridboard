@@ -52,6 +52,11 @@ renderGrid(ctx, {
   });
   
   ```
+  
+## Spans
+
+Spans look like this `0:4!0:5, 0:4!4:4` where `row:columnSpanSize!column:rowSpanSize` separated by commas `,`
+
 
 ## License
 
