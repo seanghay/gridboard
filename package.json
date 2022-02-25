@@ -1,16 +1,19 @@
 {
   "name": "@gridboard/monorepo",
   "version": "1.0.0",
-  "description": "A",
+  "description": "",
+  "private": true,
   "devDependencies": {
+    "bumpp": "^7.1.1",
     "doctypes": "^1.1.0",
     "pkg-types": "^0.3.2",
     "typescript": "^4.5.5",
-    "vscode-typescript-languageservice": "^0.29.8",
-    "vscode-languageserver-types": "^3.16.0"
+    "vscode-languageserver-types": "^3.16.0",
+    "vscode-typescript-languageservice": "^0.29.8"
   },
   "scripts": {
-    "test:ci": "pnpm -w --filter @gridboard/* test:ci"
+    "test:ci": "pnpm -w --filter @gridboard/* test:ci",
+    "release": "bumpp packages/*/package.json --commit --push --tag"
   },
   "repository": {
     "type": "git",
