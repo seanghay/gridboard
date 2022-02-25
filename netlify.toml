@@ -4,7 +4,7 @@
 
 [build]
   publish = "packages/web/dist"
-  command = "npx pnpm i --store=node_modules/.pnpm-store && npx pnpm run build:web"
+  command = "npx pnpm i --store=node_modules/.pnpm-store && npx pnpm -w run build:web"
 
 [[redirects]]
   from = "/*"
