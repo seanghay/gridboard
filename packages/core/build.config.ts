@@ -7,6 +7,6 @@ export default defineBuildConfig({
   rollup: {
     emitCJS: true,
   },
-  
+  clean: true,
   declaration: true,
 });
