@@ -13,6 +13,7 @@
   },
   "scripts": {
     "test:ci": "pnpm -w --filter @gridboard/* test:ci",
+    "build": "pnpm -r --filter @gridboard/core build",
     "release": "bumpp packages/*/package.json --commit --push --tag"
   },
   "repository": {
