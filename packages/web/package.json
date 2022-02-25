@@ -1,6 +1,7 @@
 {
   "name": "@gridboard/web",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "private": true,
   "description": "",
   "main": "main.mjs",
   "type": "module",
@@ -11,7 +12,7 @@
     "test:ci": "exit 0"
   },
   "dependencies": {
-    "@gridboard/core": "workspace:^0.0.1",
+    "@gridboard/core": "workspace:*",
     "@vueuse/core": "^7.6.2",
     "browser-image-compression": "^1.0.17",
     "file-saver": "^2.0.5",
