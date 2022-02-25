@@ -24,6 +24,8 @@ yarn add @gridboard/core
 
 ## Usage
 
+[See example](https://github.com/seanghay/gridboard/tree/main/packages/web)
+
 ```js
 renderGrid(ctx, {
     width,
