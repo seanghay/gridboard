@@ -26,5 +26,6 @@
   "bugs": {
     "url": "https://github.com/seanghay/gridboard/issues"
   },
-  "homepage": "https://github.com/seanghay/gridboard#readme"
+  "homepage": "https://github.com/seanghay/gridboard#readme",
+  "keywords": ["canvas", "grid", "span"]
 }
