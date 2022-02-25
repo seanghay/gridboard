@@ -2,7 +2,6 @@
 import { rearg, size } from 'lodash';
 import { ComputedRef, Ref, watchEffect } from 'vue';
 import { computed, ref, unref, watch, reactive } from 'vue';
-import type { VueUploadItem } from 'vue-upload-component';
 import { filesToImages } from '../image';
 import KUploadButton from './KUploadButton.vue';
 import KButton from './KButton.vue';
