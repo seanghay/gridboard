@@ -29,6 +29,8 @@ interface CollageRequestBody {
   spans?: string;
 }
 
+
+// todo: https://example.com/collage/4x4/0:2!0:2/?base_url=google.com&images=images.png,2,3,4&bg=white&gap=10
 app.post('/collage', async (req: Request, res: Response) => {
   const body = req.body as CollageRequestBody;
 
