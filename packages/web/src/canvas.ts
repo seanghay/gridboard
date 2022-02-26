@@ -15,8 +15,6 @@ export function resizeCanvas(canvas: HTMLCanvasElement, width: number, height: n
 }
 
 
-
-
 export function drawBackgroundColor(
   ctx: CanvasRenderingContext2D,
   backgroundColor: string,
