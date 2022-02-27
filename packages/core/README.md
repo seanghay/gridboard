@@ -34,7 +34,7 @@ import { renderGrid } from 'https://unpkg.com/@gridboard/core?module';
 [See example](https://github.com/seanghay/gridboard/tree/main/packages/web)
 
 ```js
-renderGrid(ctx, {
+renderGrid({
     width,
     height,
     gapSize: state.gridGap,
