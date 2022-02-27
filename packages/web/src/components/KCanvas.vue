@@ -6,7 +6,6 @@ import { createCanvas } from '../canvas';
 import type { DrawState, GridBoardCanvasState } from '../types';
 import { renderGrid } from '@gridboard/core';
 import { drawBackgroundColor, drawImageCell } from '../canvas';
-import type { CanvasRenderingContext2D } from 'canvas';
 import { randomHSLColor } from '../color';
 
 const wrapperRef: Ref<HTMLDivElement | undefined> = ref()
@@ -44,7 +43,7 @@ function onDraw({ ctx, width, height }: DrawState) {
   
   ctx.save();
 
-  renderGrid(ctx as CanvasRenderingContext2D, {
+  renderGrid({
     width,
     height,
     gapSize: state.gridGap,

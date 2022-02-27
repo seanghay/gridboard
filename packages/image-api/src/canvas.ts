@@ -22,7 +22,7 @@ export async function createImageCollage(config: ImageCollageConfig): Promise<Bu
   const imageAt = (position: number) =>
     config.images[position % config.images.length]
 
-  renderGrid(ctx, {
+  renderGrid({
     rowSize: config.row,
     columnSize: config.column,
     gapSize: config.gap ?? 0,
