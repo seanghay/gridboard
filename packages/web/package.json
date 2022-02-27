@@ -1,6 +1,6 @@
 {
   "name": "@gridboard/web",
-  "version": "0.0.8",
+  "version": "1.0.0",
   "private": true,
   "description": "",
   "main": "main.mjs",
