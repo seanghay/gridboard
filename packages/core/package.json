@@ -20,6 +20,9 @@
       "types": "./dist/main.d.ts"
     }
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "unbuild",
     "prepublishOnly": "unbuild",

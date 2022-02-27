@@ -6,6 +6,8 @@ import { createCanvas } from '../canvas';
 import type { DrawState, GridBoardCanvasState } from '../types';
 import { renderGrid } from '@gridboard/core';
 import { drawBackgroundColor, drawImageCell } from '../canvas';
+import type { CanvasRenderingContext2D } from 'canvas';
+import { randomHSLColor } from '../color';
 
 const wrapperRef: Ref<HTMLDivElement | undefined> = ref()
 const canvasRef: Ref<HTMLCanvasElement | undefined> = ref();
@@ -29,50 +31,46 @@ const wrapperStyle = computed(() => ({
 
 function onDraw({ ctx, width, height }: DrawState) {
   const state = unref(stateRef)!;
-  drawBackgroundColor(ctx, state.backgroundColor);
+
+  if (state.backgroundColor === '$random') {
+    drawBackgroundColor(ctx, randomHSLColor());
+  } else {
+    drawBackgroundColor(ctx, state.backgroundColor);
+  }
+
+  
   const imageAt = (position: number) =>
     state.images[position % state.images.length]
+  
   ctx.save();
 
-  renderGrid(ctx, {
+  renderGrid(ctx as CanvasRenderingContext2D, {
     width,
     height,
     gapSize: state.gridGap,
-    gapEdge: false,
+    gapEdge: state.gridGapEdge,
     spans: state.spans,
     rowSize: state.gridRowSize,
     columnSize: state.gridColumnSize,
-    render({
-      row, column,
-      cellHeight,
-      cellWidth,
-      position,
-      estimatedHeight,
-      estimatedWidth
-    }) {
+    render({ cellHeight, cellWidth, position, x, y }) {
       const image = imageAt(position);
+
       if (!image) {
         ctx.save();
         ctx.fillStyle = '#eee';
         ctx.fillRect(
-          estimatedWidth * column,
-          estimatedHeight * row,
+          x,
+          y,
           cellWidth,
           cellHeight
         );
+
         ctx.restore();
         return;
       };
-      drawImageCell(
-        ctx,
-        image,
-        cellWidth,
-        cellHeight,
-        estimatedWidth,
-        estimatedHeight,
-        column,
-        row
-      );
+
+      // draw image cell if exists
+      drawImageCell(ctx, image, cellWidth, cellHeight, x, y);
     }
   });
 

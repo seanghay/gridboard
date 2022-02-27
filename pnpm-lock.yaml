@@ -78,6 +78,7 @@ importers:
       '@vitejs/plugin-vue': ^2.2.0
       '@vueuse/core': ^7.6.2
       browser-image-compression: ^1.0.17
+      canvas: ^2.9.0
       file-saver: ^2.0.5
       lodash: ^4.17.21
       nanoid: ^3.3.1
@@ -91,6 +92,7 @@ importers:
       '@gridboard/core': link:../core
       '@vueuse/core': 7.6.2_vue@3.2.31
       browser-image-compression: 1.0.17
+      canvas: 2.9.0
       file-saver: 2.0.5
       lodash: 4.17.21
       nanoid: 3.3.1

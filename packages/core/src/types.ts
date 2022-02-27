@@ -10,6 +10,8 @@ export interface GridBoardRenderContext {
   cellHeight: number;
   estimatedWidth: number;
   estimatedHeight: number;
+  x: number;
+  y: number;
 }
 
 export interface GridBoardConfig {

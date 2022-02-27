@@ -41,18 +41,19 @@ renderGrid(ctx, {
       cellWidth,
       position,
       estimatedHeight,
-      estimatedWidth
+      estimatedWidth,
+      x,
+      y
     }) {
       ctx.fillStyle = '#eee';
       ctx.fillRect(
-        estimatedWidth * column,
-        estimatedHeight * row,
+        x,
+        y,
         cellWidth,
         cellHeight
       );
     }
   });
-  
   ```
   
 ## Spans

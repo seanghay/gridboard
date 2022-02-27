@@ -14,6 +14,7 @@ const state = reactive<GridBoardCanvasState>({
   gridGap: 2,
   spans: '',
   images: [],
+  gridGapEdge: false,
 });
 
 const canvasRef = ref<HTMLCanvasElement>();

@@ -30,10 +30,9 @@ export function drawImageCell(
   image: HTMLImageElement,
   actualWidth: number,
   actualHeight: number,
-  itemWidth: number,
-  itemHeight: number,
-  column: number,
-  row: number,
+  
+  x: number,
+  y: number,
 ) {
 
   const ratio = Math.min(
@@ -46,16 +45,20 @@ export function drawImageCell(
     imageRatio > viewportRatio
       ? viewportRatio / imageRatio
       : imageRatio / viewportRatio;
+
   const offsetX = image.width - (actualWidth / ratio) * scale;
   const offsetY = image.height - (actualHeight / ratio) * scale;
+
   ctx.drawImage(
     image,
     offsetX / 2,
     offsetY / 2,
     (actualWidth / ratio) * scale,
     (actualHeight / ratio) * scale,
-    itemWidth * column,
-    itemHeight * row,
+    
+    x,
+    y,
+
     actualWidth,
     actualHeight
   );

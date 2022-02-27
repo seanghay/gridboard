@@ -8,6 +8,7 @@ export interface GridBoardCanvasState {
   gridGap: number;
   gridColumnSize: number;
   gridRowSize: number;
+  gridGapEdge: boolean;
 }
 
 export interface DrawState {

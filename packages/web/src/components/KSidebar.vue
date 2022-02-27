@@ -6,6 +6,7 @@ import KButton from './KButton.vue';
 import KTextField from './KTextField.vue';
 import KUploadButton from './KUploadButton.vue';
 import { downloadJsonFile, readJsonFile } from '../file'
+import KCheckBox from './KCheckBox.vue';
 
 const props = defineProps<{ state: GridBoardCanvasState, size: number[] }>();
 const emit = defineEmits(['update:state', 'update:size', 'exportImage']);
@@ -132,7 +133,9 @@ watch(canvasSize, () => {
     <h1 class="px-6 mt-4 text-sm text-gray-700">Grid Gap</h1>
     <div class="flex gap-4 px-6 pt-2">
       <k-text-field v-model="state.gridGap" class="flex-1" type="number" placeholder="Grid Gap"></k-text-field>
+      <k-check-box v-model="state.gridGapEdge">Edge</k-check-box>
     </div>
+
     <h1 class="px-6 mt-4 text-sm text-gray-700">Grid Spans</h1>
     <div class="flex gap-4 px-6 pt-2">
       <k-text-field v-model="state.spans" class="flex-1" type="string" placeholder="Grid Spans"></k-text-field>
