@@ -7,6 +7,8 @@ import KTextField from './KTextField.vue';
 import KUploadButton from './KUploadButton.vue';
 import { downloadJsonFile, readJsonFile } from '../file'
 import KCheckBox from './KCheckBox.vue';
+import IconGitHub from '~icons/carbon/logo-github'
+import { version } from '../../package.json';
 
 const props = defineProps<{ state: GridBoardCanvasState, size: number[] }>();
 const emit = defineEmits(['update:state', 'update:size', 'exportImage']);
@@ -50,7 +52,7 @@ watch(importConfigFileRef, async () => {
   if (config.state) {
     Object.assign(state, config.state);
   }
-  
+
   if (config.size) {
     Object.assign(canvasSize, config.size);
   }
@@ -78,12 +80,19 @@ watch(canvasSize, () => {
   const size = unref(canvasSize)!;
   emit('update:size', [size.width, size.height]);
 })
-
 </script>
 
 <template>
   <div class="bg-white w-96 overflow-y-scroll pb-8 m-4 border rounded">
-    <h3 class="px-6 py-4 text-gray-800 text-lg mb-2 border-b bg-gray-50">Grid Board</h3>
+    <div class="flex items-center px-6 py-4 border-b mb-2">
+      <h1 class="font-medium text-gray-800 text-lg">Grid Board</h1>
+      <span class="font-mono text-xs text-white bg-gray-600 px-1 mx-1 rounded-sm" >{{version}}</span>
+      <div class="flex-1"></div>
+
+      <a href="https://github.com/seanghay/gridboard" target="_blank" class="flex items-center">
+        <icon-git-hub class="text-gray-700" />
+      </a>
+    </div>
 
     <div class="px-6 pt-3 flex items-center">
       <k-upload-button multiple accept="image/*" v-model="files" class="flex-1">
@@ -133,7 +142,7 @@ watch(canvasSize, () => {
     <h1 class="px-6 mt-4 text-sm text-gray-700">Grid Gap</h1>
     <div class="flex gap-4 px-6 pt-2">
       <k-text-field v-model="state.gridGap" class="flex-1" type="number" placeholder="Grid Gap"></k-text-field>
-      <k-check-box v-model="state.gridGapEdge">Edge</k-check-box>
+      <k-check-box v-model="state.gridGapEdge">Padding</k-check-box>
     </div>
 
     <h1 class="px-6 mt-4 text-sm text-gray-700">Grid Spans</h1>
@@ -148,10 +157,16 @@ watch(canvasSize, () => {
         v-model="exportSettings.quality"
         placeholder="Quality"
       ></k-text-field>
-      <k-button @click="emit('exportImage', 'image/jpeg', exportSettings.quality)" class="flex-auto">Save as JPG</k-button>
+      <k-button
+        @click="emit('exportImage', 'image/jpeg', exportSettings.quality)"
+        class="flex-auto"
+      >Save as JPG</k-button>
     </div>
     <div class="flex gap-3 px-6 pt-4">
-      <k-button @click="emit('exportImage', 'image/png')" class="flex-auto">Save as PNG (uncompressed)</k-button>
+      <k-button
+        @click="emit('exportImage', 'image/png')"
+        class="flex-auto"
+      >Save as PNG (uncompressed)</k-button>
     </div>
   </div>
 </template>
