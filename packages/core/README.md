@@ -25,7 +25,7 @@ yarn add @gridboard/core
 
 ```html
 <script type="module">
-import { renderGrid } from 'https://unpkg.com/@gridboard/core@0.0.8/dist/main.mjs?module';
+import { renderGrid } from 'https://unpkg.com/@gridboard/core?module';
 </script>
 ```
 
