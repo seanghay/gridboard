@@ -1,5 +1,3 @@
-import { CanvasRenderingContext2D  } from "canvas";
-
 import {
   calculateSkippingCells,
   createCellSpanDefinitions,
@@ -12,13 +10,8 @@ import type { GridBoardConfig } from "./types";
 export * from './types';
 
 export function renderGrid(
-  ctx: CanvasRenderingContext2D,
   config: GridBoardConfig
 ): void {
-  
-  // preserve canvas state
-  ctx.save();
-
   const {
     columnSize,
     rowSize,
@@ -86,7 +79,4 @@ export function renderGrid(
       position++;
     }
   }
-
-  // restore previous canvas state
-  ctx.restore();
 }

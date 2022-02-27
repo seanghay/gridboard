@@ -43,8 +43,5 @@
     "canvas",
     "grid",
     "span"
-  ],
-  "dependencies": {
-    "canvas": "^2.9.0"
-  }
+  ]
 }

@@ -21,12 +21,9 @@ importers:
   packages/core:
     specifiers:
       '@vitest/ui': ^0.5.4
-      canvas: ^2.9.0
       cross-env: ^7.0.3
       unbuild: ^0.6.9
       vitest: ^0.5.3
-    dependencies:
-      canvas: 2.9.0
     devDependencies:
       '@vitest/ui': 0.5.4
       cross-env: 7.0.3
