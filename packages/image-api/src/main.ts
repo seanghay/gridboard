@@ -27,6 +27,9 @@ interface CollageRequestBody {
   width: number;
   height: number;
   spans?: string;
+  gap: number;
+  edge: boolean;
+  bg: string;
 }
 
 
@@ -44,12 +47,14 @@ app.post('/collage', async (req: Request, res: Response) => {
 
   const buffer = await createImageCollage({
     images, 
-    bg: 'white',
+    bg: body.bg,
     column: body.column,
     row: body.row,
     width: body.width,
     height: body.height,
     spans: body.spans,
+    gap: body.gap,
+    edge: body.edge,
   });
 
   const readStream = new stream.PassThrough();

@@ -9,9 +9,10 @@ import type { GridBoardConfig } from "./types";
 
 export * from './types';
 
-export function renderGrid(
+export async function renderGrid(
   config: GridBoardConfig
-): void {
+): Promise<void> {
+
   const {
     columnSize,
     rowSize,
@@ -62,7 +63,7 @@ export function renderGrid(
       const y = itemHeight * row + gapOffsetSpacing;
 
       if (config.render) {
-        config!.render({
+        await config!.render({
           x,
           y,
           position,

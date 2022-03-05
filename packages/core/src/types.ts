@@ -1,6 +1,6 @@
 export type CellSpanDefinition = { [key: string]: number[] };
 
-export type GridBoardRenderFunc = (context: GridBoardRenderContext) => void;
+export type GridBoardRenderFunc = (context: GridBoardRenderContext) => Promise<void>;
 
 export interface GridBoardRenderContext {
   position: number;

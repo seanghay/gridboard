@@ -8,7 +8,7 @@ export interface ImageCollageConfig {
   column: number;
   row: number;
   bg: string;
-
+  edge: boolean;
   gap?: number;
   spans?: string,
 }
@@ -29,6 +29,7 @@ export async function createImageCollage(config: ImageCollageConfig): Promise<Bu
     spans: config.spans,
     width: config.width,
     height: config.height,
+    gapEdge: config.edge,
 
     render({
       row, column,
@@ -36,7 +37,9 @@ export async function createImageCollage(config: ImageCollageConfig): Promise<Bu
       cellWidth,
       position,
       estimatedHeight,
-      estimatedWidth
+      estimatedWidth,
+      x,
+      y
     }) {
 
       const image = imageAt(position);
@@ -45,8 +48,8 @@ export async function createImageCollage(config: ImageCollageConfig): Promise<Bu
         ctx.save();
         ctx.fillStyle = '#eee';
         ctx.fillRect(
-          estimatedWidth * column,
-          estimatedHeight * row,
+          x,
+          y,
           cellWidth,
           cellHeight
         );
@@ -59,10 +62,8 @@ export async function createImageCollage(config: ImageCollageConfig): Promise<Bu
         image,
         cellWidth,
         cellHeight,
-        estimatedWidth,
-        estimatedHeight,
-        column,
-        row
+        x,
+        y
       );
     }
   });
@@ -86,10 +87,7 @@ export function drawImageCell(
   image: Image,
   actualWidth: number,
   actualHeight: number,
-  itemWidth: number,
-  itemHeight: number,
-  column: number,
-  row: number,
+  x: number, y: number,
 ) {
 
   const ratio = Math.min(
@@ -110,8 +108,8 @@ export function drawImageCell(
     offsetY / 2,
     (actualWidth / ratio) * scale,
     (actualHeight / ratio) * scale,
-    itemWidth * column,
-    itemHeight * row,
+    x,
+    y,
     actualWidth,
     actualHeight
   );
